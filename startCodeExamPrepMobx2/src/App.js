@@ -17,11 +17,10 @@ class App extends Component {
       return(
         <tr key={student.studentId}>
           <td>{student.name}</td>
-            {
-              this.map(function(grades) {
-                return(<td>{grades}</td>);
-              })
-            }
+            { student.grades.map(function(grades, i){
+                return(<td key={i}>{grades.grade}</td>);
+            }) 
+          }
         </tr>
       );
     });
@@ -31,7 +30,7 @@ class App extends Component {
         <div className="App-header">
           <h2>React - Exam Preparation Exercise</h2>
         </div>
-        <div className="App-intro">
+        <div className="App-intro">s
           <h4>The studentsInfo structure contains two lists:</h4>
           <p>One with all the required headers, whis is a total of ({studentInfo.headers.length})</p>
           <p>One with all the Students, whis is a total of ({studentInfo.students.length})</p>
@@ -45,6 +44,7 @@ class App extends Component {
               </tr>      
             </thead>
             <tbody>
+            {dataRows}
             </tbody>
           </table>
         </div>
